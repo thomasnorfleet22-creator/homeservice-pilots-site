@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Service Pilots | AI-Powered Lead Systems for Home Service Companies</title>
+  <meta name="description" content="Stop losing leads to voicemail. Home Service Pilots builds AI-powered systems that respond in 60 seconds, follow up for 7 days, and book jobs automatically.">
+  <meta property="og:title" content="Home Service Pilots | Never Lose a Lead Again">
+  <meta property="og:description" content="AI-powered lead response systems for home service companies. 60-second response times. 7-day automated follow-up. More booked jobs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://homeservicepilots.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --navy: #0A1628;
+      --navy-light: #121F33;
+      --navy-mid: #1A2D4A;
+      --blue: #2563EB;
+      --blue-light: #3B82F6;
+      --green: #10B981;
+      --green-light: #34D399;
+      --amber: #F59E0B;
+      --white: #FFFFFF;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1;
+      --gray-400: #94A3B8;
+      --gray-500: #64748B;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1E293B;
+      --gray-900: #0F172A;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    }
+
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--gray-300);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      padding: 8px;
+    }
+    .mobile-toggle svg { width: 24px; height: 24px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 160px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 30%, rgba(16,185,129,0.08) 0%, transparent 50%);
+    }
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5.5vw, 60px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { color: var(--green-light); }
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--gray-300);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.3); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      padding: 16px 32px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+    .trust-bar {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: var(--gray-400);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 100px 24px;
+    }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      color: var(--gray-900);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .section-header p {
+      font-size: 18px;
+      color: var(--gray-500);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* PROBLEM STATS */
+    .problem { background: var(--gray-50); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-100);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .stat-number {
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat-card:nth-child(2) .stat-number { color: var(--amber); }
+    .stat-card:nth-child(3) .stat-number { color: var(--green); }
+    .stat-label {
+      font-size: 16px;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+    .problem-text {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 18px;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    /* HOW IT WORKS */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 48px;
+      left: calc(16.67% + 20px);
+      right: calc(16.67% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      opacity: 0.3;
+    }
+    .step {
+      text-align: center;
+      position: relative;
+    }
+    .step-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .step:nth-child(2) .step-number { background: linear-gradient(135deg, var(--amber), #FBBF24); }
+    .step:nth-child(3) .step-number { background: linear-gradient(135deg, var(--green), var(--green-light)); }
+    .step h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+    }
+    .step p {
+      font-size: 15px;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* PRICING */
+    .pricing { background: var(--gray-50); }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+    .price-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+    .price-card.featured {
+      border: 2px solid var(--blue);
+      box-shadow: var(--shadow-lg);
+    }
+    .price-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue);
+      color: var(--white);
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .price-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+    }
+    .price-desc {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .price-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .price-dollar {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--gray-900);
+      line-height: 1;
+    }
+    .price-period {
+      font-size: 16px;
+      color: var(--gray-400);
+      font-weight: 500;
+    }
+    .price-setup {
+      font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 24px;
+    }
+    .price-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .price-features li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--gray-600);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .price-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .price-cta {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .price-cta-outline {
+      border: 2px solid var(--gray-200);
+      color: var(--gray-700);
+    }
+    .price-cta-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .price-cta-fill {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .price-cta-fill:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .pricing-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 15px;
+      color: var(--gray-500);
+    }
+
+    /* RESULTS */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .result-card {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .result-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--green-light);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .result-label {
+      font-size: 15px;
+      color: var(--gray-300);
+      line-height: 1.5;
+    }
+    .testimonial {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial blockquote {
+      font-size: 20px;
+      color: var(--gray-700);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .testimonial cite {
+      font-size: 14px;
+      color: var(--gray-400);
+      font-style: normal;
+    }
+
+    /* FAQ */
+    .faq { background: var(--gray-50); }
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 0;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--gray-800);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+      line-height: 1.5;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--gray-400);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 24px;
+    }
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* ABOUT */
+    .about-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-content p {
+      font-size: 18px;
+      color: var(--gray-600);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.15) 0%, transparent 60%);
+    }
+    .final-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .final-cta h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .final-cta p {
+      font-size: 18px;
+      color: var(--gray-300);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--gray-900);
+      padding: 64px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--gray-400);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .footer-contact p {
+      font-size: 14px;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+    .footer-contact a {
+      color: var(--gray-300);
+      text-decoration: none;
+    }
+    .footer-contact a:hover { color: var(--white); }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--gray-400);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .stats-grid, .steps-grid, .pricing-grid, .results-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .steps-grid::before { display: none; }
+      .hero { padding: 120px 24px 80px; }
+      .section { padding: 72px 24px; }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#2563EB"/>
+          <path d="M8 16L14 22L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Home Service Pilots
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://api.leadconnectorhq.com/widget/booking/cNXB0BZYoqILxLvrf99d" class="nav-cta">Book a Free Call</a></li>
+      </ul>
+      <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner fade-up">
+      <h1>Your Leads Are Calling <span>Someone Else</span></h1>
+      <p>While you're on a job, leads are going to voicemail. 62% of them never call back. We build AI systems that respond in 60 seconds, follow up for 7 days, and book jobs into your calendar. Automatically.</p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn-primary">Get Your Free Lead Audit →</a>
+        <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+      </div>
+      <div class="trust-bar">Serving HVAC · Plumbing · Electrical · Roofing · Landscaping &amp; More</div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section problem">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <div class="section-label">The Problem</div>
+        <h2>You're Great at the Work.<br>But Leads Are Slipping Away.</h2>
+      </div>
+      <div class="stats-grid fade-up">
+        <div class="stat-card">
+          <div class="stat-number">62%</div>
+          <div class="stat-label">of callers who hit voicemail<br>never call back</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3h 47m</div>
+          <div class="stat-label">average contractor response time<br>to a new web lead</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">21x</div>
+          <div class="stat-label">more likely to book when you<br>respond in under 5 minutes</div>
+        </div>
+      </div>
+      <p class="problem-text fade-up">You're spending real money on Google Ads, Angi, and HomeAdvisor. But when a lead comes in while you're under a house or on a roof, they call the next guy. Not because your work is worse. Because someone else answered first.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <div class="section-label">How It Works</div>
+        <h2>Three Steps to Never<br>Losing a Lead Again</h2>
+      </div>
+      <div class="steps-grid fade-up">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Audit</h3>
+          <p>We test your current response times across phone, text, and web. You get a scorecard showing exactly where leads are falling through and how much it's costing you.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Build</h3>
+          <p>In 48 to 72 hours, we deploy your custom system. AI missed call text back, automated follow up sequences, review requests, and appointment booking. All from your existing business number.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Grow</h3>
+          <p>Your system works around the clock. Leads get instant responses. Past customers get reactivated. You book more jobs without hiring a single person.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing" id="pricing">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <div class="section-label">Pricing</div>
+        <h2>Simple Plans. Real Results.</h2>
+        <p>No long term contracts. No hidden fees. Cancel anytime.</p>
+      </div>
+      <div class="pricing-grid fade-up">
+        <div class="price-card">
+          <div class="price-name">Starter</div>
+          <div class="price-desc">Everything you need to stop losing leads today.</div>
+          <div class="price-amount">
+            <span class="price-dollar">$200</span>
+            <span class="price-period">/month</span>
+          </div>
+          <div class="price-setup">$750 one time setup</div>
+          <ul class="price-features">
+            <li>AI missed call text back (responds in 60 seconds)</li>
+            <li>3 day automated lead follow up sequence</li>
+            <li>Google review request automation</li>
+            <li>CRM with lead tracking dashboard</li>
+            <li>Monthly performance report</li>
+          </ul>
+          <a href="#contact" class="price-cta price-cta-outline">Book a Free Call</a>
+        </div>
+        <div class="price-card featured">
+          <div class="price-name">Growth</div>
+          <div class="price-desc">The full system for companies ready to scale.</div>
+          <div class="price-amount">
+            <span class="price-dollar">$400</span>
+            <span class="price-period">/month</span>
+          </div>
+          <div class="price-setup">$2,500 one time setup</div>
+          <ul class="price-features">
+            <li>Everything in Starter, plus:</li>
+            <li>Full 7 day lead nurture sequence (text + email)</li>
+            <li>AI voice agent for inbound calls</li>
+            <li>Database reactivation campaign (quarterly)</li>
+            <li>Smart appointment booking with calendar sync</li>
+            <li>Local SEO optimization (GMB + on page)</li>
+            <li>Custom landing page</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#contact" class="price-cta price-cta-fill">Book a Free Call</a>
+        </div>
+        <div class="price-card">
+          <div class="price-name">Enterprise</div>
+          <div class="price-desc">For established companies that need a fully custom solution.</div>
+          <div class="price-amount">
+            <span class="price-dollar">Custom</span>
+          </div>
+          <div class="price-setup">Tailored to your business</div>
+          <ul class="price-features">
+            <li>Everything in Growth, plus:</li>
+            <li>Multi location support</li>
+            <li>Custom integrations with your existing tools</li>
+            <li>Dedicated account manager</li>
+            <li>Advanced reporting and analytics</li>
+          </ul>
+          <a href="#contact" class="price-cta price-cta-outline">Contact Us</a>
+        </div>
+      </div>
+      <p class="pricing-note">All plans include a free Lead Response Audit before you commit to anything.</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section" id="results">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <div class="section-label">Results</div>
+        <h2>What Happens When Leads<br>Stop Falling Through the Cracks</h2>
+      </div>
+      <div class="results-grid fade-up">
+        <div class="result-card">
+          <div class="result-number">60s</div>
+          <div class="result-label">Average response time<br>(industry avg: 3+ hours)</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">14</div>
+          <div class="result-label">Appointments booked in 2 weeks<br>from previously "dead" leads</div>
+        </div>
+        <div class="result-card">
+          <div class="result-number">$5,600+</div>
+          <div class="result-label">New revenue generated from<br>a $200/month system</div>
+        </div>
+      </div>
+      <div class="testimonial fade-up">
+        <blockquote>"We were losing 5 to 10 calls a week to voicemail. Now every single one gets a text back before I even look at my phone. Booked 8 jobs in the first month we wouldn't have gotten otherwise."</blockquote>
+        <cite>Results based on early client data. Full case studies coming soon.</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <div class="section-label">FAQ</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list fade-up">
+        <div class="faq-item">
+          <button class="faq-question">Do I need to be tech savvy to use this?</button>
+          <div class="faq-answer"><p>Not at all. We handle the entire setup and ongoing management. You'll get a simple dashboard to see your leads and appointments, but you don't need to touch anything technical. If you can read a text message, you can use this.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How fast can you get me set up?</button>
+          <div class="faq-answer"><p>Most clients are fully live within 48 to 72 hours of signing up. We move fast because we know every day without the system is another day of lost leads.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What if it doesn't work for my business?</button>
+          <div class="faq-answer"><p>Our Starter plan is month to month. No contracts, no commitments. If you're not booking more jobs within 30 days, cancel with zero questions asked.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does this replace my current phone number?</button>
+          <div class="faq-answer"><p>No. Everything runs through your existing business number. Your customers won't notice any difference except faster responses.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What types of home service businesses do you work with?</button>
+          <div class="faq-answer"><p>HVAC, plumbing, electrical, pest control, roofing, landscaping, garage doors, painting, cleaning, and more. Any home service company that gets inbound leads and wants to convert more of them into booked jobs.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What about my existing CRM or scheduling software?</button>
+          <div class="faq-answer"><p>We integrate with most tools including Housecall Pro, ServiceTitan, Jobber, and others. During onboarding, we'll map your current stack and make everything work together.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What's the difference between Starter and Growth?</button>
+          <div class="faq-answer"><p>Starter covers the essentials: missed call text back, basic follow up, and reviews. Growth adds AI voice handling, longer nurture sequences, database reactivation, SEO, and a custom landing page. It's the full system for companies ready to grow aggressively.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header fade-up">
+        <div class="section-label">About</div>
+        <h2>Built for Contractors.<br>By People Who Get It.</h2>
+      </div>
+      <div class="about-content fade-up">
+        <p>We're not a marketing agency that works with everyone. Home Service Pilots exists for one reason: home service companies are losing thousands of dollars in leads every month because of slow follow up. And the fix is straightforward.</p>
+        <p>We build automated systems that respond faster than any human can, follow up consistently, and book appointments while you're focused on the work that actually makes you money.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="contact">
+    <div class="final-cta-inner fade-up">
+      <h2>Ready to Stop Losing Leads?</h2>
+      <p>Get a free Lead Response Audit. We'll call your business, submit a web form, and send an email. Then we'll show you exactly how fast (or slow) your current response is, and what it's costing you. Free. No commitment.</p>
+      <a href="https://api.leadconnectorhq.com/widget/booking/cNXB0BZYoqILxLvrf99d" class="btn-primary">Get My Free Audit →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Home Service Pilots</h3>
+          <p>AI powered lead systems for home service companies. Never lose a lead to voicemail again.</p>
+          <div class="footer-contact">
+            <p>📞 <a href="tel:+17866880246">(786) 688-0246</a></p>
+            <p>📧 <a href="mailto:thomas@homeservicepilots.com">thomas@homeservicepilots.com</a></p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#results">Results</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#pricing">Missed Call Text Back</a>
+          <a href="#pricing">Lead Follow Up</a>
+          <a href="#pricing">Review Automation</a>
+          <a href="#pricing">Database Reactivation</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Home Service Pilots. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // Smooth nav scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('navLinks').classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
