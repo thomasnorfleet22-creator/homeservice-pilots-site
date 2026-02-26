@@ -699,7 +699,6 @@
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#results">Results</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="https://api.leadconnectorhq.com/widget/booking/cNXB0BZYoqILxLvrf99d" class="nav-cta">Book a Free Call</a></li>
       </ul>
       <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -926,9 +925,60 @@
     <div class="final-cta-inner fade-up">
       <h2>Ready to Stop Losing Leads?</h2>
       <p>Get a free Lead Response Audit. We'll call your business, submit a web form, and send an email. Then we'll show you exactly how fast (or slow) your current response is, and what it's costing you. Free. No commitment.</p>
-      <a href="https://api.leadconnectorhq.com/widget/booking/cNXB0BZYoqILxLvrf99d" class="btn-primary">Get My Free Audit →</a>
+      
+      <form id="contactForm" style="max-width: 500px; margin: 30px auto 0; text-align: left;">
+        <div style="margin-bottom: 15px;">
+          <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 15px;">
+          <input type="text" name="business" placeholder="Business Name" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 15px;">
+          <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 15px;">
+          <input type="tel" name="phone" placeholder="Phone Number" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 1rem;">
+        </div>
+        <div style="margin-bottom: 15px;">
+          <select name="trade" required style="width: 100%; padding: 14px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 1rem;">
+            <option value="" disabled selected>Select Your Trade</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="hvac">HVAC</option>
+            <option value="electrical">Electrical</option>
+            <option value="roofing">Roofing</option>
+            <option value="landscaping">Landscaping</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="pest-control">Pest Control</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 20px; display: flex; align-items: flex-start; gap: 10px;">
+          <input type="checkbox" id="smsConsent" name="smsConsent" style="margin-top: 5px; min-width: 18px; min-height: 18px;">
+          <label for="smsConsent" style="font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.4;">
+            I agree to receive SMS/MMS messages from Home Service Pilots regarding my inquiry and services. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. View our <a href="/privacy.html" style="color: #93c5fd; text-decoration: underline;">Privacy Policy</a> &amp; <a href="/terms.html" style="color: #93c5fd; text-decoration: underline;">Terms of Service</a>. Consent is not a condition of purchase.
+          </label>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; font-size: 1.1rem;">Get My Free Audit →</button>
+      </form>
     </div>
   </section>
+  
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      // For now, open mailto with form data
+      const name = data.get('name');
+      const business = data.get('business');
+      const email = data.get('email');
+      const phone = data.get('phone');
+      const trade = data.get('trade');
+      const body = `Name: ${name}%0ABusiness: ${business}%0AEmail: ${email}%0APhone: ${phone}%0ATrade: ${trade}`;
+      window.location.href = `mailto:tnorfleet@homeservicepilots.com?subject=Free Audit Request - ${business}&body=${body}`;
+      form.reset();
+    });
+  </script>
 
   <!-- FOOTER -->
   <footer class="footer">
